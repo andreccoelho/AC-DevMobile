@@ -29,7 +29,6 @@ public class Programa {
         // Exibe o resultado
         System.out.println("Resultado do IMC: " + resultado);
 
-        // Fecha o scanner
         scanner.close();
     }
 }

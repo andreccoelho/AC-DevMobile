@@ -18,7 +18,7 @@ public class CalculadoraIMC {
     // Método que calcula o valor numérico do IMC com base no peso e altura.
     private static double Imc(double peso, double altura) {
         double imc = peso / (altura * altura); // Fórmula padrão para cálculo do IMC.
-        return Math.round(imc * 100000.0) / 100000.0; // Arredonda o IMC para cinco casas decimais.
+        return (imc * 100000.0) / 100000.0; 
     }
 
     // Método que classifica o IMC para adultos com base em categorias de peso.
@@ -44,7 +44,7 @@ public class CalculadoraIMC {
 
     // Método que classifica o IMC para idosos com base no sexo e faixas de IMC.
     public String calcularImcIdoso(String sexo, double imc) {
-        if (Objects.equals(sexo, "h")) { // Se o sexo for masculino.
+        if (Objects.equals(sexo, "masculino")) { // Se o sexo for masculino.
             if (imc < 22) {
                 return "Baixo peso";
             } else if (imc >= 22 && imc <= 27) {
@@ -58,7 +58,7 @@ public class CalculadoraIMC {
             } else {
                 return "Obesidade grau III (obesidade mórbida)";
             }
-        } else if (Objects.equals(sexo, "m")) { // Se o sexo for feminino.
+        } else if (Objects.equals(sexo, "feminino")) { // Se o sexo for feminino.
             if (imc < 21.9) {
                 return "Baixo peso";
             } else if (imc >= 22 && imc <= 27) {
@@ -79,9 +79,9 @@ public class CalculadoraIMC {
 
     // Método que calcula o IMC para crianças, considerando a idade e sexo.
     public String calcularImcCrianca(int idade, String sexo, double imc) {
-        if (Objects.equals(sexo, "h")) { // Se o sexo for masculino, calcula o IMC de acordo com a idade.
+        if (Objects.equals(sexo, "masculino")) { // Se o sexo for masculino, calcula o IMC de acordo com a idade.
             return calcularImcCriancaHomem(idade, imc);
-        } else if (Objects.equals(sexo, "m")) { // Se o sexo for feminino, calcula o IMC de acordo com a idade.
+        } else if (Objects.equals(sexo, "feminino")) { // Se o sexo for feminino, calcula o IMC de acordo com a idade.
             return calcularImcCriancaMulher(idade, imc);
         } else {
             return "Sexo informado inválido."; // Retorna erro se o sexo não for válido.
